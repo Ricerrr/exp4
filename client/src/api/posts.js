@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const api = axios.create({ baseURL: '/api' })
+const api = axios.create({
+  baseURL: import.meta.env.PROD
+    ? 'https://exp4-production.up.railway.app/api'
+    : '/api'
+})
 
 export async function getPosts(params = {}) {
   const { data } = await api.get('/posts', { params })
