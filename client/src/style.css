@@ -1,0 +1,138 @@
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: Inter, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #f1f5f5;
+  color: #134e4a;
+  line-height: 1.6;
+  font-size: 14px;
+}
+a { color: #0d9488; text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; cursor: pointer; }
+input, textarea, select, button { font-family: inherit; font-size: 14px; }
+
+/* =========== 布局 =========== */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app-header {
+  background: #ffffff;
+  border-bottom: 1px solid #ccfbf1;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky; top: 0; z-index: 10;
+}
+.app-logo {
+  font-size: 20px; font-weight: 700; color: #0d9488;
+  letter-spacing: -0.02em;
+}
+.app-nav { display: flex; gap: 16px; }
+.app-nav a { color: #134e4a; font-weight: 500; }
+.app-nav a.router-link-active { color: #0d9488; }
+.app-main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+}
+@media (max-width: 780px) {
+  .app-main { grid-template-columns: 1fr; }
+}
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: #5eead4;
+  font-size: 12px;
+  background: #134e4a;
+}
+
+/* =========== 卡片 =========== */
+.card {
+  background: #ffffff;
+  border: 1px solid #ccfbf1;
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  border-color: #5eead4;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.08);
+}
+
+/* =========== 按钮 =========== */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid #0d9488;
+  border-radius: 999px;
+  background: #0d9488;
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn:hover { background: #0f766e; text-decoration: none; }
+.btn-ghost {
+  background: transparent; color: #0d9488;
+}
+.btn-ghost:hover { background: #ccfbf1; color: #0f766e; }
+.btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+/* =========== 输入 =========== */
+.input, .textarea, .select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #99f6e4;
+  border-radius: 10px;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus, .textarea:focus, .select:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+.textarea { resize: vertical; font-family: ui-monospace, Menlo, Consolas, monospace; }
+
+/* =========== 状态 =========== */
+.state-box {
+  padding: 40px 20px;
+  border: 1px dashed #99f6e4;
+  border-radius: 12px;
+  text-align: center;
+  color: #0f766e;
+  background: #ffffff;
+}
+.loading-dot {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: #0d9488; margin-right: 8px;
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  from { opacity: 0.3; transform: scale(0.7); }
+  to   { opacity: 1;   transform: scale(1.1); }
+}
+
+/* =========== Markdown =========== */
+.prose h1 { font-size: 24px; margin: 24px 0 12px; color: #134e4a; border-bottom: 1px solid #ccfbf1; padding-bottom: 8px; }
+.prose h2 { font-size: 20px; margin: 20px 0 10px; color: #134e4a; }
+.prose h3 { font-size: 17px; margin: 16px 0 8px; color: #0f766e; }
+.prose p  { margin: 12px 0; }
+.prose ul, .prose ol { padding-left: 24px; margin: 12px 0; }
+.prose li { margin: 4px 0; }
+.prose code { background: #ccfbf1; color: #0f766e; padding: 1px 6px; border-radius: 4px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.prose pre { background: #134e4a; color: #ccfbf1; padding: 14px 16px; border-radius: 10px; overflow-x: auto; margin: 14px 0; }
+.prose pre code { background: transparent; color: inherit; padding: 0; }
+.prose blockquote { border-left: 4px solid #0d9488; padding-left: 14px; color: #0f766e; margin: 14px 0; }
+.prose hr { border: none; border-top: 1px solid #ccfbf1; margin: 20px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.prose th, .prose td { border: 1px solid #99f6e4; padding: 6px 10px; text-align: left; }
+.prose th { background: #f0fdfa; }
